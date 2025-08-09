@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulario de Actualización</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5 mb-5">
+    <h1 class="text-center mb-4">Formulario de Actualización de Datos</h1>
+
+    <form action="/enviar" method="POST" class="bg-white p-4 rounded shadow-sm">
+
+ <!-- Datos Personales -->
+<!-- Datos Personales -->
+<fieldset class="mb-4">
+  <legend class="fw-bold border-bottom pb-2 mb-3">Datos Personales</legend>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label" for="nombre">Apellido y Nombre Completo <span class="text-danger">*</span></label>
+      <input type="text" id="nombre" class="form-control" name="nombre" value="<%= data.nombre || '' %>" required>
+      <% if(errors.nombre) { %>
+        <div class="text-danger small mt-1"><%= errors.nombre %></div>
+      <% } %>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="estado_civil">Estado Civil <span class="text-danger">*</span></label>
+      <select id="estado_civil" name="estado_civil" class="form-select" required>
+        <option value="" <%= !data.estado_civil ? 'selected' : '' %>>Seleccione...</option>
+        <option value="soltero" <%= data.estado_civil === 'soltero' ? 'selected' : '' %>>Soltero/a</option>
+        <option value="casado" <%= data.estado_civil === 'casado' ? 'selected' : '' %>>Casado/a</option>
+        <option value="divorciado" <%= data.estado_civil === 'divorciado' ? 'selected' : '' %>>Divorciado/a</option>
+        <option value="viudo" <%= data.estado_civil === 'viudo' ? 'selected' : '' %>>Viudo/a</option>
+        <option value="union" <%= data.estado_civil === 'union' ? 'selected' : '' %>>Unión convivencial</option>
+      </select>
+      <% if(errors.estado_civil) { %>
+        <div class="text-danger small mt-1"><%= errors.estado_civil %></div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-3 align-items-end">
+    <div class="col-md-5">
+      <label class="form-label" for="calle">Calle <span class="text-danger">*</span></label>
+      <input type="text" id="calle" name="calle" class="form-control" value="<%= data.calle || '' %>" required>
+      <% if(errors.calle) { %>
+        <div class="text-danger small mt-1"><%= errors.calle %></div>
+      <% } %>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label" for="numero">Número <span class="text-danger">*</span></label>
+      <input type="text" id="numero" name="numero" class="form-control" value="<%= data.numero || '' %>" required>
+      <% if(errors.numero) { %>
+        <div class="text-danger small mt-1"><%= errors.numero %></div>
+      <% } %>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label" for="piso">Piso</label>
+      <input type="text" id="piso" name="piso" class="form-control" value="<%= data.piso || '' %>">
+    </div>
+    <div class="col-md-2">
+      <label class="form-label" for="depto">Depto</label>
+      <input type="text" id="depto" name="depto" class="form-control" value="<%= data.depto || '' %>">
+    </div>
+  </div>
+
+  <div class="row g-3 mt-3">
+    <div class="col-md-3">
+      <label class="form-label" for="cp">Código Postal <span class="text-danger">*</span></label>
+      <input type="text" id="cp" name="cp" class="form-control" value="<%= data.cp || '' %>" required>
+      <% if(errors.cp) { %>
+        <div class="text-danger small mt-1"><%= errors.cp %></div>
+      <% } %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="barrio">Barrio <span class="text-danger">*</span></label>
+      <input type="text" id="barrio" name="barrio" class="form-control" value="<%= data.barrio || '' %>" required>
+      <% if(errors.barrio) { %>
+        <div class="text-danger small mt-1"><%= errors.barrio %></div>
+      <% } %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="localidad">Localidad <span class="text-danger">*</span></label>
+      <input type="text" id="localidad" name="localidad" class="form-control" value="<%= data.localidad || '' %>" required>
+      <% if(errors.localidad) { %>
+        <div class="text-danger small mt-1"><%= errors.localidad %></div>
+      <% } %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="provincia">Provincia <span class="text-danger">*</span></label>
+      <input type="text" id="provincia" name="provincia" class="form-control" value="<%= data.provincia || '' %>" required>
+      <% if(errors.provincia) { %>
+        <div class="text-danger small mt-1"><%= errors.provincia %></div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <label class="form-label" for="entre_calles">Entre Calles <span class="text-danger">*</span></label>
+    <input type="text" id="entre_calles" name="entre_calles" class="form-control" value="<%= data.entre_calles || '' %>" required>
+    <% if(errors.entre_calles) { %>
+      <div class="text-danger small mt-1"><%= errors.entre_calles %></div>
+    <% } %>
+  </div>
+</fieldset>
+
+
+      <!-- Datos de Contacto -->
+      <fieldset class="mb-4">
+        <legend class="fw-bold border-bottom pb-2 mb-3">Datos de Contacto</legend>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label" for="celular">Celular <span class="text-danger">*</span></label>
+            <input type="text" id="celular" name="celular" class="form-control" value="<%= data.celular || '' %>" required>
+            <% if(errors.celular) { %>
+              <div class="text-danger small mt-1"><%= errors.celular %></div>
+            <% } %>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="email">E-mail <span class="text-danger">*</span></label>
+            <input type="email" id="email" name="email" class="form-control" value="<%= data.email || '' %>" required>
+            <% if(errors.email) { %>
+              <div class="text-danger small mt-1"><%= errors.email %></div>
+            <% } %>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-3">
+          <div class="col-md-4">
+            <label class="form-label" for="tel_emergencia">Tel. Emergencia</label>
+            <input type="text" id="tel_emergencia" name="tel_emergencia" class="form-control" value="<%= data.tel_emergencia || '' %>">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="nombre_emergencia">Nombre de la Persona</label>
+            <input type="text" id="nombre_emergencia" name="nombre_emergencia" class="form-control" value="<%= data.nombre_emergencia || '' %>">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="parentesco_emergencia">Parentesco</label>
+            <input type="text" id="parentesco_emergencia" name="parentesco_emergencia" class="form-control" value="<%= data.parentesco_emergencia || '' %>">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Datos Familiares -->
+      <fieldset class="mb-4">
+        <legend class="fw-bold border-bottom pb-2 mb-3">Datos Familiares</legend>
+
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center">
+            <thead class="table-light">
+              <tr>
+                <th>Apellido y Nombre</th>
+                <th>Parentesco</th>
+                <th>Fecha de Nacimiento</th>
+                <th>DNI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0; i < 7; i++) { %>
+                <tr>
+                  <td><input type="text" class="form-control" name="familiares[<%= i %>][nombre]" value="<%= data.familiares && data.familiares[i] ? data.familiares[i].nombre : '' %>"></td>
+                  <td><input type="text" class="form-control" name="familiares[<%= i %>][parentesco]" value="<%= data.familiares && data.familiares[i] ? data.familiares[i].parentesco : '' %>"></td>
+                  <td><input type="date" class="form-control" name="familiares[<%= i %>][fecha_nacimiento]" value="<%= data.familiares && data.familiares[i] ? data.familiares[i].fecha_nacimiento : '' %>"></td>
+                  <td><input type="text" class="form-control" name="familiares[<%= i %>][dni]" value="<%= data.familiares && data.familiares[i] ? data.familiares[i].dni : '' %>"></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </fieldset>
+
+      <!-- Nivel de Estudio -->
+      <fieldset class="mb-4">
+        <legend class="fw-bold border-bottom pb-2 mb-3">Nivel de Estudio</legend>
+
+        <div class="row g-3 mb-3 align-items-end">
+          <div class="col-md-3">
+            <label class="form-label">Primario</label>
+            <select class="form-select" name="primario_estado">
+              <option value="" <%= !data.primario_estado ? 'selected' : '' %>>Seleccionar</option>
+              <option value="completo" <%= data.primario_estado === 'completo' ? 'selected' : '' %>>Completo</option>
+              <option value="incompleto" <%= data.primario_estado === 'incompleto' ? 'selected' : '' %>>Incompleto</option>
+              <option value="en curso" <%= data.primario_estado === 'en curso' ? 'selected' : '' %>>En curso</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3 align-items-end">
+          <div class="col-md-3">
+            <label class="form-label">Secundario</label>
+            <select class="form-select" name="secundario_estado">
+              <option value="" <%= !data.secundario_estado ? 'selected' : '' %>>Seleccionar</option>
+              <option value="completo" <%= data.secundario_estado === 'completo' ? 'selected' : '' %>>Completo</option>
+              <option value="incompleto" <%= data.secundario_estado === 'incompleto' ? 'selected' : '' %>>Incompleto</option>
+              <option value="en curso" <%= data.secundario_estado === 'en curso' ? 'selected' : '' %>>En curso</option>
+            </select>
+          </div>
+          <div class="col-md-9">
+            <label class="form-label">Título</label>
+            <input type="text" class="form-control" name="secundario_titulo" value="<%= data.secundario_titulo || '' %>">
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3 align-items-end">
+          <div class="col-md-3">
+            <label class="form-label">Terciario</label>
+            <select class="form-select" name="terciario_estado">
+              <option value="" <%= !data.terciario_estado ? 'selected' : '' %>>Seleccionar</option>
+              <option value="completo" <%= data.terciario_estado === 'completo' ? 'selected' : '' %>>Completo</option>
+              <option value="incompleto" <%= data.terciario_estado === 'incompleto' ? 'selected' : '' %>>Incompleto</option>
+              <option value="en curso" <%= data.terciario_estado === 'en curso' ? 'selected' : '' %>>En curso</option>
+            </select>
+          </div>
+          <div class="col-md-9">
+            <label class="form-label">Título</label>
+            <input type="text" class="form-control" name="terciario_titulo" value="<%= data.terciario_titulo || '' %>">
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3 align-items-end">
+          <div class="col-md-3">
+            <label class="form-label">Universitario</label>
+            <select class="form-select" name="universitario_estado">
+              <option value="" <%= !data.universitario_estado ? 'selected' : '' %>>Seleccionar</option>
+              <option value="completo" <%= data.universitario_estado === 'completo' ? 'selected' : '' %>>Completo</option>
+              <option value="incompleto" <%= data.universitario_estado === 'incompleto' ? 'selected' : '' %>>Incompleto</option>
+              <option value="en curso" <%= data.universitario_estado === 'en curso' ? 'selected' : '' %>>En curso</option>
+            </select>
+          </div>
+          <div class="col-md-9">
+            <label class="form-label">Título</label>
+            <input type="text" class="form-control" name="universitario_titulo" value="<%= data.universitario_titulo || '' %>">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="otros_cursos">Otros títulos/cursos</label>
+          <textarea id="otros_cursos" class="form-control" name="otros_cursos" rows="2"><%= data.otros_cursos || '' %></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="otras_habilidades">Otras habilidades de interés</label>
+          <textarea id="otras_habilidades" class="form-control" name="otras_habilidades" rows="2"><%= data.otras_habilidades || '' %></textarea>
+        </div>
+      </fieldset>
+
+      <div class="text-end">
+        <button type="submit" class="btn btn-primary px-4">Enviar</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Script confirmación previa -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (e) => {
+        const confirmado = confirm('¿Está seguro que desea enviar el formulario?');
+        if (!confirmado) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS (opcional, para interacciones) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

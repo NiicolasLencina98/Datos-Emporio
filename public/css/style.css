@@ -1,0 +1,262 @@
+/* style.css */
+
+/* Fondo suave para toda la página */
+body.bg-light {
+  background-color: #f9fafb !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Contenedor del formulario */
+form.bg-white {
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+}
+
+/* Legendas con estilo */
+fieldset legend {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+/* Inputs con borde más suave y sombra leve al foco */
+input.form-control,
+select.form-select,
+textarea.form-control {
+  border: 1.5px solid #ced4da;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input.form-control:focus,
+select.form-select:focus,
+textarea.form-control:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 8px rgba(41, 128, 185, 0.25);
+  outline: none;
+}
+
+/* Botón con colores personalizados */
+button.btn-primary {
+  background-color: #2980b9;
+  border: none;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover,
+button.btn-primary:focus {
+  background-color: #1f5988;
+  box-shadow: 0 0 12px rgba(31, 89, 136, 0.5);
+}
+
+/* Texto de error con icono */
+.text-danger {
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.text-danger::before {
+  content: "⚠️";
+  margin-right: 6px;
+  font-size: 1rem;
+}
+
+/* Tabla familiares con bordes suaves y fondo alternado */
+table.table {
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+
+table.table thead th {
+  background-color: #2980b9;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px 6px 0 0;
+  border: none;
+}
+
+table.table tbody tr {
+  background-color: #f1f7fb;
+  border-radius: 6px;
+}
+
+table.table tbody tr:hover {
+  background-color: #d6e6f8;
+}
+
+table.table input.form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 2rem;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+}
+
+/* Espaciado entre grupos */
+.mb-4 {
+  margin-bottom: 1.75rem !important;
+}
+
+/* Asterisco rojo en etiquetas obligatorias */
+label .text-danger {
+  color: #e74c3c;
+  margin-left: 4px;
+}
+
+/* Leyendas personalizadas */
+fieldset {
+  padding: 1.5rem 1rem 1rem 1rem;
+  border: 1.5px solid #2980b9;
+  border-radius: 8px;
+  background-color: #ffffffcc;
+}
+
+/* Responsive para dispositivos pequeños */
+@media (max-width: 575.98px) {
+  form.bg-white {
+    padding: 20px 15px;
+  }
+  table.table thead th,
+  table.table tbody td {
+    font-size: 0.85rem;
+  }
+}
+/* Reset básico y cuerpo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Formularios */
+form {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+/* Títulos y leyendas */
+fieldset {
+  border: 1px solid #dee2e6;
+  padding: 20px 25px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  background: #fafafa;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 0 10px;
+  width: auto;
+  color: #495057;
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+  color: #495057;
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 4px rgba(13,110,253,0.3);
+}
+
+/* Errores */
+.text-danger {
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+/* Botón enviar */
+button[type="submit"] {
+  background-color: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #0b5ed7;
+}
+
+/* Confirmación */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px 35px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+.card h2 {
+  font-weight: 700;
+  color: #198754;
+}
+
+.card p {
+  font-size: 1.15rem;
+  margin-bottom: 25px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  form {
+    padding: 20px 15px;
+  }
+}

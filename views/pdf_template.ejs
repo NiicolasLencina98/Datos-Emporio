@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ficha de Actualización</title>
+  <style>
+    /* Reset y estilos básicos */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 10pt;
+      margin: 20px;
+      color: #000;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    section {
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 4px 6px;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+    .small-text {
+      font-size: 8pt;
+    }
+  </style>
+</head>
+<body>
+  <h2>Ficha de Actualización de Datos</h2>
+
+  <section>
+    <strong>Datos Personales</strong><br>
+    Nombre: <%= data.nombre %><br>
+    Estado Civil: <%= data.estado_civil %><br>
+    Dirección: <%= data.calle %> Nº <%= data.numero %>, Piso <%= data.piso || '-' %>, Depto <%= data.depto || '-' %><br>
+    CP: <%= data.cp %>, Barrio: <%= data.barrio %>, Localidad: <%= data.localidad %>, Provincia: <%= data.provincia %><br>
+    Entre calles: <%= data.entre_calles %>
+  </section>
+
+  <section>
+    <strong>Contacto</strong><br>
+    Celular: <%= data.celular %><br>
+    E-mail: <%= data.email %><br>
+    Tel. Emergencia: <%= data.tel_emergencia || '-' %>, Nombre: <%= data.nombre_emergencia || '-' %>, Parentesco: <%= data.parentesco_emergencia || '-' %>
+  </section>
+
+  <section>
+    <strong>Datos Familiares</strong>
+    <table>
+      <thead>
+        <tr>
+          <th>Apellido y Nombre</th>
+          <th>Parentesco</th>
+          <th>Fecha de Nacimiento</th>
+          <th>DNI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < data.familiares.length; i++) { 
+             let fam = data.familiares[i]; %>
+          <tr>
+            <td><%= fam.nombre || '-' %></td>
+            <td><%= fam.parentesco || '-' %></td>
+            <td><%= fam.fecha_nacimiento || '-' %></td>
+            <td><%= fam.dni || '-' %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <strong>Nivel de Estudio</strong><br>
+    Primario: <%= data.primario_estado || '-' %><br>
+    Secundario: <%= data.secundario_estado || '-' %>, Título: <%= data.secundario_titulo || '-' %><br>
+    Terciario: <%= data.terciario_estado || '-' %>, Título: <%= data.terciario_titulo || '-' %><br>
+    Universitario: <%= data.universitario_estado || '-' %>, Título: <%= data.universitario_titulo || '-' %><br><br>
+
+    Otros títulos/cursos:<br>
+    <%= data.otros_cursos || '-' %><br><br>
+    Otras habilidades de interés:<br>
+    <%= data.otras_habilidades || '-' %>
+  </section>
+
+    <section style="margin-top: 40px; display: flex; justify-content: space-between; font-size: 10pt;">
+    <div style="width: 30%; text-align: center;">
+      <div style="border-top: 1px dotted #000; margin-bottom: 5px;"></div>
+      Firma
+    </div>
+    <div style="width: 30%; text-align: center;">
+      <div style="border-top: 1px dotted #000; margin-bottom: 5px;"></div>
+      Aclaración
+    </div>
+    <div style="width: 30%; text-align: center;">
+      <div style="border-top: 1px dotted #000; margin-bottom: 5px;"></div>
+      DNI
+    </div>
+  </section>
+
+</body>
+</html>

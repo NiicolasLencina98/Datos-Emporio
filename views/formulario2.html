@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Actualización</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-4 mb-5">
+    <h1 class="text-center mb-4">Formulario de Actualización de Datos</h1>
+
+    <form action="/enviar" method="POST" class="bg-white p-4 rounded shadow-sm">
+
+      <!-- Datos Personales -->
+      <fieldset class="mb-4">
+        <legend>Datos Personales</legend>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Apellido y Nombre Completo</label>
+            <input type="text" class="form-control" name="nombre" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Estado Civil</label>
+            <select class="form-select" name="estado_civil" required>
+              <option value="">Seleccione...</option>
+              <option value="soltero">Soltero/a</option>
+              <option value="casado">Casado/a</option>
+              <option value="divorciado">Divorciado/a</option>
+              <option value="viudo">Viudo/a</option>
+              <option value="union">Unión convivencial</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6"><label class="form-label">Calle</label><input type="text" class="form-control" name="calle"></div>
+          <div class="col-md-2"><label class="form-label">Número</label><input type="text" class="form-control" name="numero"></div>
+          <div class="col-md-2"><label class="form-label">Piso</label><input type="text" class="form-control" name="piso"></div>
+          <div class="col-md-2"><label class="form-label">Depto</label><input type="text" class="form-control" name="depto"></div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3"><label class="form-label">CP</label><input type="text" class="form-control" name="cp"></div>
+          <div class="col-md-3"><label class="form-label">Barrio</label><input type="text" class="form-control" name="barrio"></div>
+          <div class="col-md-3"><label class="form-label">Localidad</label><input type="text" class="form-control" name="localidad"></div>
+          <div class="col-md-3"><label class="form-label">Provincia</label><input type="text" class="form-control" name="provincia"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Entre Calles</label>
+          <input type="text" class="form-control" name="entre_calles">
+        </div>
+      </fieldset>
+
+      <!-- Contacto -->
+      <fieldset class="mb-4">
+        <legend>Contacto</legend>
+
+        <div class="row mb-3">
+          <div class="col-md-6"><label class="form-label">Celular</label><input type="text" class="form-control" name="celular" required></div>
+          <div class="col-md-6"><label class="form-label">E-mail</label><input type="email" class="form-control" name="email" required></div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4"><label class="form-label">Tel. Emergencia</label><input type="text" class="form-control" name="tel_emergencia"></div>
+          <div class="col-md-4"><label class="form-label">Nombre de la Persona</label><input type="text" class="form-control" name="nombre_emergencia"></div>
+          <div class="col-md-4"><label class="form-label">Parentesco</label><input type="text" class="form-control" name="parentesco_emergencia"></div>
+        </div>
+      </fieldset>
+
+      <!-- Datos Familiares -->
+      <fieldset class="mb-4">
+        <legend>Datos Familiares</legend>
+
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center">
+            <thead class="table-light">
+              <tr>
+                <th>Apellido y Nombre</th>
+                <th>Parentesco</th>
+                <th>Fecha de Nacimiento</th>
+                <th>DNI</th>
+              </tr>
+            </thead>
+           <tbody>
+  <tr>
+    <td><input type="text" class="form-control" name="familiares[0][nombre]"></td>
+    <td><input type="text" class="form-control" name="familiares[0][parentesco]"></td>
+    <td><input type="date" class="form-control" name="familiares[0][fecha_nacimiento]"></td>
+    <td><input type="text" class="form-control" name="familiares[0][dni]"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" name="familiares[1][nombre]"></td>
+    <td><input type="text" class="form-control" name="familiares[1][parentesco]"></td>
+    <td><input type="date" class="form-control" name="familiares[1][fecha_nacimiento]"></td>
+    <td><input type="text" class="form-control" name="familiares[1][dni]"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" name="familiares[2][nombre]"></td>
+    <td><input type="text" class="form-control" name="familiares[2][parentesco]"></td>
+    <td><input type="date" class="form-control" name="familiares[2][fecha_nacimiento]"></td>
+    <td><input type="text" class="form-control" name="familiares[2][dni]"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" name="familiares[3][nombre]"></td>
+    <td><input type="text" class="form-control" name="familiares[3][parentesco]"></td>
+    <td><input type="date" class="form-control" name="familiares[3][fecha_nacimiento]"></td>
+    <td><input type="text" class="form-control" name="familiares[3][dni]"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" name="familiares[4][nombre]"></td>
+    <td><input type="text" class="form-control" name="familiares[4][parentesco]"></td>
+    <td><input type="date" class="form-control" name="familiares[4][fecha_nacimiento]"></td>
+    <td><input type="text" class="form-control" name="familiares[4][dni]"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" name="familiares[5][nombre]"></td>
+    <td><input type="text" class="form-control" name="familiares[5][parentesco]"></td>
+    <td><input type="date" class="form-control" name="familiares[5][fecha_nacimiento]"></td>
+    <td><input type="text" class="form-control" name="familiares[5][dni]"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" name="familiares[6][nombre]"></td>
+    <td><input type="text" class="form-control" name="familiares[6][parentesco]"></td>
+    <td><input type="date" class="form-control" name="familiares[6][fecha_nacimiento]"></td>
+    <td><input type="text" class="form-control" name="familiares[6][dni]"></td>
+  </tr>
+</tbody>
+
+          </table>
+        </div>
+      </fieldset>
+
+      <!-- Nivel de Estudio -->
+      <fieldset class="mb-4">
+        <legend>Nivel de Estudio</legend>
+
+        <!-- Repetir para cada nivel -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Primario</label>
+            <select class="form-select" name="primario_estado">
+              <option value="">Seleccionar</option>
+              <option value="completo">Completo</option>
+              <option value="incompleto">Incompleto</option>
+              <option value="en curso">En curso</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Secundario</label>
+            <select class="form-select" name="secundario_estado">
+              <option value="">Seleccionar</option>
+              <option value="completo">Completo</option>
+              <option value="incompleto">Incompleto</option>
+              <option value="en curso">En curso</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Título</label>
+            <input type="text" class="form-control" name="secundario_titulo">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Terciario</label>
+            <select class="form-select" name="terciario_estado">
+              <option value="">Seleccionar</option>
+              <option value="completo">Completo</option>
+              <option value="incompleto">Incompleto</option>
+              <option value="en curso">En curso</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Título</label>
+            <input type="text" class="form-control" name="terciario_titulo">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Universitario</label>
+            <select class="form-select" name="universitario_estado">
+              <option value="">Seleccionar</option>
+              <option value="completo">Completo</option>
+              <option value="incompleto">Incompleto</option>
+              <option value="en curso">En curso</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Título</label>
+            <input type="text" class="form-control" name="universitario_titulo">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Otros títulos/cursos</label>
+          <textarea class="form-control" name="otros_cursos" rows="2"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Otras habilidades de interés</label>
+          <textarea class="form-control" name="otras_habilidades" rows="2"></textarea>
+        </div>
+      </fieldset>
+
+      <div class="text-end">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>
