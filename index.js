@@ -4,6 +4,7 @@ const nodemailer = require("nodemailer");
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const path = require("path");
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.set("view engine", "ejs");
@@ -175,6 +176,6 @@ app.post("/enviar", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Servidor ejecutándose en http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`Servidor ejecutándose en puerto ${PORT}`);
 });
